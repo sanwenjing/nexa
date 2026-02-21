@@ -23,5 +23,5 @@ android {
 }
 
 dependencies {
-    implementation files('libs/nexa-core-0.0.22.aar')
+    implementation files('libs/nexa-core.aar')
 }
