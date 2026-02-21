@@ -21,13 +21,16 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
     
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+    - name: Debug repositories
+      run: |
+        echo "=== Checking available packages ==="
+        ./gradlew dependencies --configuration debugRuntimeClasspath 2>&1 | head -100
     
     - name: Build with Gradle
-      run: ./gradlew assembleDebug --no-daemon
+      run: ./gradlew assembleDebug --stacktrace 2>&1 | tail -100
     
     - name: Upload APK
+      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
