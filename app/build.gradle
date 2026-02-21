@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application' version '8.1.0' apply false
+    id 'com.android.application' version '7.4.2' apply false
 }
 
 apply plugin: 'com.android.application'
@@ -15,8 +15,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     
     packaging {
