@@ -21,17 +21,11 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
     
-    - name: Debug repositories
-      run: |
-        echo "=== Checking available packages ==="
-        ./gradlew dependencies --configuration debugRuntimeClasspath 2>&1 | head -100
-    
     - name: Build with Gradle
-      run: ./gradlew assembleDebug --stacktrace 2>&1 | tail -100
+      run: ./gradlew assembleDebug
     
     - name: Upload APK
-      if: success()
       uses: actions/upload-artifact@v4
       with:
-        name: app-debug
+        name: NexaDemo-debug
         path: app/build/outputs/apk/debug/app-debug.apk
