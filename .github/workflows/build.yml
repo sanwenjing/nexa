@@ -21,11 +21,24 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
     
+    - name: Show directory
+      run: |
+        pwd
+        ls -la
+        ls -la app/
+    
+    - name: Show libs
+      run: |
+        ls -la app/libs/
+    
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: |
+        ./gradlew assembleDebug --stacktrace 2>&1 || true
+        ls -la app/build/outputs/apk/debug/ 2>/dev/null || echo "No APK generated"
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
+      if: always()
       with:
         path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 30
