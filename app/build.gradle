@@ -1,8 +1,6 @@
 plugins {
-    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.application' version '7.4.2'
 }
-
-apply plugin: 'com.android.application'
 
 android {
     namespace 'com.nexa.demo'
@@ -13,17 +11,8 @@ android {
         minSdk 24
         targetSdk 34
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-    
-    packaging {
-        jniLibs.useLegacyPackaging = true
-    }
 }
 
 dependencies {
-    implementation 'ai.nexa:core:0.0.22'
+    // 暂时移除Nexa SDK依赖
 }
