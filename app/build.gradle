@@ -1,6 +1,8 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.application' version '8.1.0' apply false
 }
+
+apply plugin: 'com.android.application'
 
 android {
     namespace 'com.nexa.demo'
@@ -8,24 +10,16 @@ android {
 
     defaultConfig {
         applicationId "com.nexa.demo"
-        minSdk 27
+        minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
-    
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     
-    packagingOptions {
+    packaging {
         jniLibs.useLegacyPackaging = true
     }
 }
